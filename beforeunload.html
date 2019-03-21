@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Examples</title>
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <a href="https://www.google.com.tw/?gfe_rd=cr&ei=6evvVeztB4rT8AWBzL-ABw">A</a>
+    <a href="https://tw.yahoo.com/">B</a>
+    <a href="http://www.pchome.com.tw/">C</a>
+</body>
+<script>
+var a = document.getElementsByTagName('a'),
+    link = '';
+
+var fun = function (e) {
+    console.log(e);
+    if (link === 'https://tw.yahoo.com/' || link === '') {
+        link = '';
+        return 'Exit?';
+    }
+    return;
+};
+
+for (var i = 0; i < a.length; i++) {
+    a[i].onclick = function (e) {
+        link = e.target.href;
+    };
+}
+
+window.onbeforeunload = fun;
+
+</script>
+</html>
